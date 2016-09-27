@@ -1,0 +1,37 @@
+C:\Users\Anthony\Documents\Visual Studio 2012\Projects\PayxNew\PayxNew\bin\PayX.dll.config
+C:\Users\Anthony\Documents\Visual Studio 2012\Projects\PayxNew\PayxNew\bin\PayX.dll
+C:\Users\Anthony\Documents\Visual Studio 2012\Projects\PayxNew\PayxNew\bin\PayX.XmlSerializers.dll
+C:\Users\Anthony\Documents\Visual Studio 2012\Projects\PayxNew\PayxNew\bin\PayX.pdb
+C:\Users\Anthony\Documents\Visual Studio 2012\Projects\PayxNew\PayxNew\bin\NPOI.dll
+C:\Users\Anthony\Documents\Visual Studio 2012\Projects\PayxNew\PayxNew\bin\Odyssey.dll
+C:\Users\Anthony\Documents\Visual Studio 2012\Projects\PayxNew\PayxNew\bin\ICSharpCode.SharpZipLib.dll
+C:\Users\Anthony\Documents\Visual Studio 2012\Projects\PayxNew\PayxNew\obj\Release\PayX.dll
+C:\Users\Anthony\Documents\Visual Studio 2012\Projects\PayxNew\PayxNew\obj\Release\PayX.pdb
+C:\Users\Anthony\Documents\Visual Studio 2012\Projects\PayxNew\PayxNew\obj\Release\PayX.XmlSerializers.dll
+C:\Einao\VS Source\Projects\PayxNew\PayxNew\bin\PayX.dll.config
+C:\Einao\VS Source\Projects\PayxNew\PayxNew\bin\PayX.dll
+C:\Einao\VS Source\Projects\PayxNew\PayxNew\bin\PayX.XmlSerializers.dll
+C:\Einao\VS Source\Projects\PayxNew\PayxNew\bin\PayX.pdb
+C:\Einao\VS Source\Projects\PayxNew\PayxNew\bin\Odyssey.dll
+C:\Einao\VS Source\Projects\PayxNew\PayxNew\obj\Release\PayX.dll
+C:\Einao\VS Source\Projects\PayxNew\PayxNew\obj\Release\PayX.pdb
+C:\Einao\VS Source\Projects\PayxNew\PayxNew\obj\Release\PayX.XmlSerializers.dll
+C:\Einao\VS Source\Projects\PayxNew2\PayxNew\bin\PayX.dll.config
+C:\Einao\VS Source\Projects\PayxNew2\PayxNew\bin\PayX.dll
+C:\Einao\VS Source\Projects\PayxNew2\PayxNew\bin\PayX.XmlSerializers.dll
+C:\Einao\VS Source\Projects\PayxNew2\PayxNew\bin\PayX.pdb
+C:\Einao\VS Source\Projects\PayxNew2\PayxNew\bin\Odyssey.dll
+C:\Einao\VS Source\Projects\PayxNew2\PayxNew\obj\Release\PayxNew.csprojResolveAssemblyReference.cache
+C:\Einao\VS Source\Projects\PayxNew2\PayxNew\obj\Release\PayX.dll
+C:\Einao\VS Source\Projects\PayxNew2\PayxNew\obj\Release\PayX.pdb
+C:\Einao\VS Source\Projects\PayxNew2\PayxNew\obj\Release\PayX.XmlSerializers.dll
+G:\PayxNew\PayxNew\bin\PayX.dll.config
+G:\PayxNew\PayxNew\bin\PayX.dll
+G:\PayxNew\PayxNew\bin\PayX.XmlSerializers.dll
+G:\PayxNew\PayxNew\bin\PayX.pdb
+G:\PayxNew\PayxNew\bin\Odyssey.dll
+G:\PayxNew\PayxNew\obj\Release\PayxNew.csprojResolveAssemblyReference.cache
+G:\PayxNew\PayxNew\obj\Release\PayX.dll
+G:\PayxNew\PayxNew\obj\Release\PayX.pdb
+G:\PayxNew\PayxNew\obj\Release\PayX.XmlSerializers.dll
+C:\Einao\VS Source\Projects\PayxNew\PayxNew\obj\Release\PayxNew.csprojResolveAssemblyReference.cache

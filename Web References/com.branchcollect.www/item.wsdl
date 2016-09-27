@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://branchcollect.com/sk/pa" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://branchcollect.com/sk/pa" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://branchcollect.com/sk/pa">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="GenerateTransactionRequest">
+    <wsdl:part name="XMLRequest" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="GenerateTransactionResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="GenerateTransactionTPRequest">
+    <wsdl:part name="XMLRequest" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="GenerateTransactionTPResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="GenerateTransactionV3Dot2Request">
+    <wsdl:part name="XMLRequest" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="GenerateTransactionV3Dot2Response">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="GenerateTransactionV3Dot3Request">
+    <wsdl:part name="XMLRequest" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="GenerateTransactionV3Dot3Response">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="PaidTransactionRequest">
+    <wsdl:part name="XMLRequest" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="PaidTransactionResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="OnePaidTransactionRequest">
+    <wsdl:part name="XMLRequest" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="OnePaidTransactionResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="PaidTransactionDetailsRequest">
+    <wsdl:part name="XMLRequest" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="PaidTransactionDetailsResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:portType name="BranchCollectWebServicesGTPortType">
+    <wsdl:operation name="GenerateTransaction">
+      <wsdl:input message="tns:GenerateTransactionRequest" />
+      <wsdl:output message="tns:GenerateTransactionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTransactionTP">
+      <wsdl:input message="tns:GenerateTransactionTPRequest" />
+      <wsdl:output message="tns:GenerateTransactionTPResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTransactionV3Dot2">
+      <wsdl:input message="tns:GenerateTransactionV3Dot2Request" />
+      <wsdl:output message="tns:GenerateTransactionV3Dot2Response" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTransactionV3Dot3">
+      <wsdl:input message="tns:GenerateTransactionV3Dot3Request" />
+      <wsdl:output message="tns:GenerateTransactionV3Dot3Response" />
+    </wsdl:operation>
+    <wsdl:operation name="PaidTransaction">
+      <wsdl:input message="tns:PaidTransactionRequest" />
+      <wsdl:output message="tns:PaidTransactionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="OnePaidTransaction">
+      <wsdl:input message="tns:OnePaidTransactionRequest" />
+      <wsdl:output message="tns:OnePaidTransactionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="PaidTransactionDetails">
+      <wsdl:input message="tns:PaidTransactionDetailsRequest" />
+      <wsdl:output message="tns:PaidTransactionDetailsResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BranchCollectWebServicesGTBinding" type="tns:BranchCollectWebServicesGTPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="GenerateTransaction">
+      <soap:operation soapAction="https://www.branchcollect.com/branchcollect_test/pay/index.php/GenerateTransaction" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://branchcollect.com/sk/pa" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://branchcollect.com/sk/pa" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTransactionTP">
+      <soap:operation soapAction="https://www.branchcollect.com/branchcollect_test/pay/index.php/GenerateTransactionTP" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://branchcollect.com/sk/pa" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://branchcollect.com/sk/pa" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTransactionV3Dot2">
+      <soap:operation soapAction="https://www.branchcollect.com/branchcollect_test/pay/index.php/GenerateTransactionV3Dot2" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://branchcollect.com/sk/pa" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://branchcollect.com/sk/pa" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTransactionV3Dot3">
+      <soap:operation soapAction="https://www.branchcollect.com/branchcollect_test/pay/index.php/GenerateTransactionV3Dot3" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://branchcollect.com/sk/pa" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://branchcollect.com/sk/pa" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PaidTransaction">
+      <soap:operation soapAction="https://www.branchcollect.com/branchcollect_test/pay/index.php/PaidTransaction" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://branchcollect.com/sk/pa" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://branchcollect.com/sk/pa" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnePaidTransaction">
+      <soap:operation soapAction="https://www.branchcollect.com/branchcollect_test/pay/index.php/OnePaidTransaction" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://branchcollect.com/sk/pa" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://branchcollect.com/sk/pa" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PaidTransactionDetails">
+      <soap:operation soapAction="https://www.branchcollect.com/branchcollect_test/pay/index.php/PaidTransactionDetails" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://branchcollect.com/sk/pa" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://branchcollect.com/sk/pa" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BranchCollectWebServicesGT">
+    <wsdl:port name="BranchCollectWebServicesGTPort" binding="tns:BranchCollectWebServicesGTBinding">
+      <soap:address location="https://www.branchcollect.com:443/branchcollect_test/pay/index.php" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

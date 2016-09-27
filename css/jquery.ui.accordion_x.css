@@ -1,0 +1,26 @@
+/*
+ * jQuery UI Accordion 1.8.11
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Accordion#theming
+ */
+/* IE/Win - Fix animation bug - #4615 */
+.ui-accordion { width: 100%; }
+.ui-accordion .ui-accordion-header { cursor: pointer; position: relative; margin-top: 0px;; }
+.ui-accordion .ui-accordion-li-fix { display: inline; }
+.ui-accordion .ui-accordion-header-active { border-bottom: 0 !important; }
+.ui-accordion .ui-accordion-header h3 {font-size: 14px; font-weight:normal; padding: 0px 2px 0px 2px; text-decoration:none; color:#900}
+.ui-accordion .ui-accordion-header a { display: block; font-size: 14px; font-weight:normal; padding: 0px 2px 0px 2px; text-decoration:none; color:#900}
+.ui-accordion-icons .ui-accordion-header a { padding-left: 2px; }
+.ui-accordion .ui-accordion-header .ui-icon { position: absolute; left: 1em; top: 50%; margin-top: 0px; }
+.ui-accordion .ui-accordion-content {
+padding: 1em 2.2em; border-top: 0; margin-top: -2px; position: relative; top: 1px; margin-bottom: 0px;  display: none; zoom: 1; 
+display: block;
+    height: 175px;
+    overflow: auto;
+    padding-bottom: 0px;
+    padding-top: 0px;}
+.ui-accordion .ui-accordion-content-active { display: block; }

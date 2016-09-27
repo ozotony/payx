@@ -1,0 +1,8 @@
+c:\users\anthony\documents\visual studio 2012\Projects\PayxNew\PayxNew\bin\PayxNew.dll
+c:\users\anthony\documents\visual studio 2012\Projects\PayxNew\PayxNew\bin\PayxNew.pdb
+c:\users\anthony\documents\visual studio 2012\Projects\PayxNew\PayxNew\obj\Debug\PayxNew.csprojResolveAssemblyReference.cache
+c:\users\anthony\documents\visual studio 2012\Projects\PayxNew\PayxNew\obj\Debug\PayxNew.dll
+c:\users\anthony\documents\visual studio 2012\Projects\PayxNew\PayxNew\obj\Debug\PayxNew.pdb
+c:\users\anthony\documents\visual studio 2012\Projects\PayxNew\PayxNew\bin\NPOI.dll
+c:\users\anthony\documents\visual studio 2012\Projects\PayxNew\PayxNew\bin\Odyssey.dll
+c:\users\anthony\documents\visual studio 2012\Projects\PayxNew\PayxNew\bin\ICSharpCode.SharpZipLib.dll

@@ -1,0 +1,468 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <form name="userForm" class="form-horizontal" ng-submit="submitForm(userForm.$valid)" novalidate>
+
+
+        <!--<ul class="nav nav-tabs">
+            <li class="active"><a href="#home" data-toggle="tab">Bio Data</a></li>
+            <li><a href="#profile" data-toggle="tab">Company Info</a></li>
+            <li><a href="#messages" data-toggle="tab">Login Info</a></li>
+            <li><a href="#settings" data-toggle="tab">Supporting Document</a></li>
+        </ul>-->
+        <!--<div class="tab-content">-->
+
+
+
+        <div id="home">
+            <fieldset class="scheduler-border">
+                <legend class="scheduler-border"> Information of Principal Partner</legend>
+                <div class="row">
+                    <div>
+
+                        <div>
+                            <div class="control-group">
+                                <label class="control-label" for="AccountType"> ACCOUNT TYPE   </label>
+                                <div class="controls">
+                                    <select ng-model="AccountType" name="AccountType" class="form-control" data-ng-options="item for item in items" required>
+                                        <option value="">-- Select AccountType --</option>
+
+                                    </select>
+
+
+                                </div>
+                                <span class="help-block" data-ng-show="userForm.AccountType.$error.required">This is required.</span>
+                                <p ng-show="userForm.AccountType.$invalid && !userForm.AccountType.$pristine" class="help-block">ACCOUNT TYPE is required.</p>
+                            </div>
+
+                        </div>
+
+                        <div>
+                            <div class="control-group">
+                                <label class="control-label" for="FirstName">FIRSTNAME </label>
+                                <div class="controls">
+                                    <input name="name" class="form-control" ng-model="firstname" required
+                                           type="text" />
+
+                                </div>
+
+                                <div id='myform_Name_errorloc'>
+                                    <span class="help-block" data-ng-show="userForm.name.$error.required">This is required.</span>
+                                    <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">You name is required.</p>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div>
+                        <div class="control-group">
+                            <label class="control-label" for="Surname">SURNAME </label>
+                            <div class="controls">
+                                <input name="surname" class="form-control" ng-model="surname" required type="text" />
+                                <span class="help-block" data-ng-show="userForm.surname.$error.required">This is required.</span>
+                                <p ng-show="userForm.surname.$invalid && !userForm.surname.$pristine" class="help-block">You Surname is required.</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div>
+                        <div class="control-group">
+                            <label class="control-label" for="Nationality">NATIONALITY</label>
+                            <div class="controls">
+
+                                <select ng-model="country" name="country" class="form-control" data-ng-options="c.code as c.name for c in countries" data-ng-change="GetStates()" required>
+                                    <option value="">-- Select Country --</option>
+                                </select>
+
+                                <!--<input id="dob" class="datepicker" type="text" />-->
+
+                            </div>
+                            <span class="help-block" data-ng-show="userForm.country.$error.required">This is required.</span>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="row">
+
+                    <div>
+                        <div class="control-group">
+                            <label class="control-label" for="State">STATE</label>
+                            <div class="controls">
+                                <select ng-model="state" style="display:inline" class="form-control" name="state" data-ng-disabled="!states" data-ng-options="s.id as s.name for s in states" required>
+                                    <option value="">-- Select State --</option>
+                                </select>
+                                <!--<input id="email" type="text" />-->
+
+                            </div>
+                            <span class="help-block" data-ng-show="userForm.state.$error.required">This is required.</span>
+                        </div>
+
+                    </div>
+
+                    <div>
+                        <div class="control-group">
+                            <label class="control-label" for="dob">DATE OF BIRTH</label>
+                            <div class="controls">
+
+
+                                <input type="text" class="form-control" name="vdate" required ng-model="date" jqdatepicker />
+                                <span class="help-block" data-ng-show="userForm.vdate.$error.required">This is required.</span>
+                                <p ng-show="userForm.vdate.$invalid && !userForm.vdate.$pristine" class="help-block">Select Date.</p>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+            </fieldset>
+
+
+
+        </div>
+
+        <!--<div class="tab-pane" id="profile">-->
+        <fieldset class="scheduler-border">
+            <legend class="scheduler-border">Company Information</legend>
+
+            <div class="row">
+                <div>
+
+                    <div>
+                        <div class="control-group">
+                            <label class="control-label" for="CompName">COMPANY NAME</label>
+                            <div class="controls">
+
+                                <input name="CompName" class="form-control" required ng-model="CompName" type="text" />
+                                <!--<select id="AccountType">
+                                    <option></option>
+
+                                </select>-->
+
+
+                            </div>
+                            <span class="help-block" data-ng-show="userForm.CompName.$error.required">This is required.</span>
+                        </div>
+
+                    </div>
+
+                    <div>
+                        <div class="control-group">
+                            <label class="control-label" for="CompAddress">COMPANY ADDRESS</label>
+                            <div class="controls">
+                                <textarea name="CompAddress" class="form-control" required ng-model="CompAddress" rows="5" cols="20"></textarea>
+
+
+                            </div>
+                            <span class="help-block" data-ng-show="userForm.CompAddress.$error.required">This is required.</span>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div>
+
+                    <div>
+                        <div class="control-group">
+                            <label class="control-label" for="CompEmail">COMPANY EMAIL</label>
+                            <div class="controls">
+
+
+
+                                <input name="CompEmail" class="form-control" ng-model="CompEmail" type="email" ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" required />
+                                <span class="help-block" data-ng-show="userForm.CompEmail.$error.required">This is required.</span>
+                                <!--<input name="CompEmail" class="form-control" ng-model="CompEmail"    />-->
+                                <p ng-show="userForm.CompEmail.$invalid && !userForm.CompEmail.$pristine" class="help-block">Email Invalid.</p>
+                                <!--<select id="AccountType">
+                                    <option></option>
+
+                                </select>-->
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div>
+                        <div class="control-group">
+                            <label class="control-label" for="CompPhone">COMPANY PHONE</label>
+                            <div class="controls">
+                                <input name="CompPhone" class="form-control" ng-model="CompPhone" type="text" />
+
+
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div>
+
+                    <div>
+                        <div class="control-group">
+                            <label class="control-label" for="CompPerson">CONTACT PERSON</label>
+                            <div class="controls">
+
+                                <input name="CompPerson" class="form-control" ng-model="CompPerson" type="text" />
+                                <!--<select id="AccountType">
+                                    <option></option>
+
+                                </select>-->
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div>
+                        <div class="control-group">
+                            <label class="control-label" for="ContactPhone">CONTACT NUMBER</label>
+                            <div class="controls">
+                                <input name="ContactPhone" class="form-control" ng-model="ContactPhone" type="text" />
+
+
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div>
+
+                    <div>
+                        <div class="control-group">
+                            <label class="control-label" for="DobIncorp">DATE INCORPORATED</label>
+                            <div class="controls">
+
+                                <!--<input id="DobIncorp" class="form-control" data-provide="datepicker" data-bind="value: DobIncorp" type="text" />-->
+
+                                <input type="text" class="form-control" name="DobIncorp" ng-model="DobIncorp" jqdatepicker />
+                                <p ng-show="userForm.DobIncorp.$invalid && !userForm.DobIncorp.$pristine" class="help-block">Select Date.</p>
+
+                                <!--<select id="AccountType">
+                                    <option></option>
+
+                                </select>-->
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+
+                </div>
+            </div>
+
+
+            <!--</div>-->
+            <!--<div class="tab-pane" id="messages">-->
+            <div class="row">
+                <div>
+
+                    <div>
+                        <div class="control-group">
+                            <label class="control-label" for="Email">EMAIL </label>
+                            <div class="controls">
+
+                                <input name="VEMAIL" id="VEMAIL" class="form-control" ng-model="vemail" ng-blur="change()" required type="email" ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" />
+                                <!--<input name="VEMAIL" class="form-control" ng-model="VEMAIL"   />-->
+                                <span class="help-block" data-ng-show="userForm.VEMAIL.$error.required">This is required.</span>
+                                <p ng-show="userForm.VEMAIL.$invalid && !userForm.VEMAIL.$pristine" class="help-block">Email Invalid.</p>
+
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div>
+                        <div class="control-group">
+                            <label class="control-label" for="password">PASSWORD </label>
+                            <div class="controls">
+                                <input name="password" class="form-control" ng-model="password" type="password" required />
+                                <span class="help-block" data-ng-show="userForm.password.$error.required">This is required.</span>
+                                <p ng-show="userForm.password.$invalid && !userForm.password.$pristine" class="help-block">You password is required.</p>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div>
+
+                    <div>
+                        <div class="control-group">
+                            <label class="control-label" for="ConfirmPassword">CONFIRM PASSWORD </label>
+                            <div class="controls">
+
+                                <input name="ConfirmPassword" class="form-control" ng-model="ConfirmPassword" ng-match="password" type="password" required />
+
+                                <!--<input name="ConfirmPassword" class="form-control" ng-model="ConfirmPassword"  type="password" />-->
+                                <span class="help-block" data-ng-show="userForm.ConfirmPassword.$error.required">This is required.</span>
+                                <span class="help-block" data-ng-show="userForm.ConfirmPassword.$error.match">Passwords do not match.</span>
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+
+                </div>
+            </div>
+
+        </fieldset>
+
+        <!--</div>-->
+        <!--<div class="tab-pane" id="settings">-->
+        <fieldset class="scheduler-border">
+            <legend class="scheduler-border">Document</legend>
+
+            <div class="row">
+                <div>
+
+                    <div>
+                        <div class="control-group">
+                            <label class="control-label" for="cac">CAC CERTIFICATE <span style="color:red">*PDF</span> </label>
+                            <div class="controls">
+                                <input id="cac" name="cac" class="form-control" required type="file" />
+
+                                <!--<select id="AccountType">
+                                    <option></option>
+
+                                </select>-->
+
+
+                            </div>
+                            <span class="help-block" data-ng-show="userForm.cac.$error.required">This is required.</span>
+                        </div>
+
+                    </div>
+
+                    <div>
+                        <div class="control-group">
+                            <label class="control-label" for="Letter_Intro">A letter addressed to the Registrar introducing the principal partner and company representative <span style="color:red">*PDF</span> </label>
+                            <div class="controls">
+                                <input id="Letter_Intro" name="Letter_Intro" required class="form-control" data-bind="value: loi" type="file" />
+
+
+
+
+                            </div>
+                            <span class="help-block" data-ng-show="userForm.Letter_Intro.$error.required">This is required.</span>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div>
+
+                    <div>
+                        <div class="control-group">
+                            <label class="control-label" for="passport">Photograph of Principal Partner <span style="color:red">*JPEG</span> </label>
+                            <div class="controls">
+                                <input id="passport" name="passport" required class="form-control" data-bind="value: passport" type="file" />
+
+                                <!--<select id="AccountType">
+                                    <option></option>
+
+                                </select>-->
+
+
+                            </div>
+                            <span class="help-block" data-ng-show="userForm.passport.$error.required">This is required.</span>
+                        </div>
+
+                    </div>
+
+
+
+
+                </div>
+            </div>
+
+        </fieldset>
+        <div class="row">
+
+            <div>
+                <div class="control-group">
+                    <button id="Button3" type="submit" ng-disabled="processing" class="btn-primary"> Submit </button>
+
+                </div>
+
+            </div>
+
+            <div>
+
+                <!--<div>
+                    <p>Dirty? {{userForm.$dirty}}</p>
+                    <p>Invalid? {{userForm.$invalid}}</p>
+                    <p>Pristine? {{userForm.$pristine}}</p>
+                </div>-->
+
+            </div>
+
+
+        </div>
+
+        <!--</div>-->
+        <!--</div>-->
+
+
+    </form>
+</body>
+</html>
