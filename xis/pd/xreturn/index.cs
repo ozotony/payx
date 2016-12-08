@@ -434,6 +434,26 @@
                         }
 
 
+                        if (Session["onlineid12"] != null)
+                        {
+                            Registration dd = new Registration();
+                            xname.Value = "Success";
+                            xname2.Value = Convert.ToString(Session["onlineid12"]);
+                            vamount.Value = isr.Amount;
+                            vtransactionid.Value = isr.MerchantReference;
+                            vtype.Value = "RegisteredUser";
+                            dd.updateHwallet2(txnref.Trim(), "Used");
+                            Retriever dp = new Retriever();
+                            kkx = dp.getMarkInfo(xname2.Value);
+
+                            //Registration dd = new Registration();
+                            //string dpp = Convert.ToString(Session["onlineid2"]);
+                            //dd.updateTransID3(dpp, txnref.Trim());
+
+
+                        }
+
+
 
 
                         sendAlertHtml();

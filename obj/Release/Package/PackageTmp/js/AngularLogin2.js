@@ -2,7 +2,7 @@
 
 
 
-var serviceBaseCld = "http://45.40.139.163/EinaoTestEnvironment.CLD";
+var serviceBaseCld = "http://tm.cldng.com";
 //var serviceBaseCld = "http://localhost:49703";
 
 app.controller('myController', ['$scope', '$http', '$rootScope', function ($scope, $http, $rootScope) {
@@ -77,6 +77,10 @@ function (isConfirm) {
 
         if (xname5 == "TradeMarkAmendment") {
             doUrlPost(serviceBaseCld + "/admin/tm/x_unit/edit_apps4.aspx", xname2, xname3, xname4)
+        }
+
+        if (xname5 == "RegisteredUser") {
+            doUrlPost(serviceBaseCld + "/admin/tm/RegisteredUser.aspx", xname2, xname3, xname4)
         }
 
        
