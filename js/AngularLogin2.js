@@ -23,8 +23,7 @@ app.controller('myController', ['$scope', '$http', '$rootScope', function ($scop
         var xname5 = $("input#vtype").val();
         
 
-        
-
+      
         
 
         //alert(xname2)
@@ -94,6 +93,38 @@ function (isConfirm) {
 
         }
 
+        if (xname == "Success2") {
+
+            swal({
+                title: "PAYMENT SUCCESS",
+                text: "Download Publication Journal ",
+                type: "success",
+                showCancelButton: false,
+                confirmButtonColor: "#DD6B55", confirmButtonText: "PROCEED!",
+                cancelButtonText: "No!",
+                closeOnConfirm: true,
+                closeOnCancel: true
+            },
+function (isConfirm) {
+    if (isConfirm) {
+        var param = {
+            'transID': xname2
+        };
+
+        //window.open("http://88.150.164.30/TrademarkSearchApi/JournalReport2.aspx?TransactionidID=1");
+        OpenWindowWithPost("http://88.150.164.30/TrademarkSearchApi/JournalReport2.aspx?TransactionidID=" + xname2, "width=700, height=400, left=100, top=100, resizable=yes, scrollbars=yes", "NewFile", param);
+
+    }
+
+                else {
+                    swal("Cancelled", "Action Canceled :)", "error");
+                }
+});
+
+           
+
+        }
+
 
     });
 
@@ -131,6 +162,30 @@ function doUrlPost(x_url, transID,vamount,vtranid) {
     });
 }
 
+
+function OpenWindowWithPost(url, windowoption, name, params) {
+    var form = document.createElement("form");
+    form.setAttribute("method", "post");
+    form.setAttribute("action", url);
+    form.setAttribute("target", name);
+    for (var i in params) {
+        if (params.hasOwnProperty(i)) {
+            var input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = i;
+            input.value = params[i];
+            form.appendChild(input);
+        }
+    }
+    document.body.appendChild(form);
+    //note I am using a post.htm page since I did not want to make double request to the page
+    //it might have some Page_Load call which might screw things up.
+    var new_window =  window.open("post.htm", name, windowoption);
+
+         
+    form.submit();
+    document.body.removeChild(form);
+}
 
 function postwith(to, p) {
     var myForm = document.createElement("form");

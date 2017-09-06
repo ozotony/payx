@@ -16,8 +16,8 @@ namespace PayX.Handler
         public string inputString = "";
         public string product_id = "";
         protected string check_trans_page = "";
-        protected string txnref = "201502270850474";
-        protected string amount = "2783249";
+        protected string txnref = "201706201123004M";
+        protected string amount = "203046";
         protected XPay.InterSwitch.PayDirect.Classes.Transactions tx = new XPay.InterSwitch.PayDirect.Classes.Transactions();
         protected XPay.Classes.XObjs.InterSwitchResponse isr = new XPay.Classes.XObjs.InterSwitchResponse();
         protected XPay.Classes.XObjs.InterSwitchResponse isr2 = new XPay.Classes.XObjs.InterSwitchResponse();

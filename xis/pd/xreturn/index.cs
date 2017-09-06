@@ -454,6 +454,29 @@
                         }
 
 
+                        if (Session["onlineid14"] != null)
+                        {
+                            Registration dd = new Registration();
+                            xname.Value = "Success2";
+                            xname2.Value = Convert.ToString(Session["onlineid14"]);
+                            vamount.Value = isr.Amount;
+                            vtransactionid.Value = isr.MerchantReference;
+                            vtype.Value = "Journal";
+                            dd.updateHwallet2(txnref.Trim(), "Used");
+                            Retriever dp = new Retriever();
+                            XObjs.Registration c_reg2 = (XObjs.Registration)Session["c_reg"];
+                            string ddate = DateTime.Now.ToString();
+                            dd.JournalAdd(c_reg2.xid, xname2.Value, txnref.Trim(), ddate);
+                            //  kkx = dp.getMarkInfo(xname2.Value);
+
+                            //Registration dd = new Registration();
+                            //string dpp = Convert.ToString(Session["onlineid2"]);
+                            //dd.updateTransID3(dpp, txnref.Trim());
+
+
+                        }
+
+
 
 
                         sendAlertHtml();

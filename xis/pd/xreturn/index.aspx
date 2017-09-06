@@ -16,6 +16,8 @@
      <style type="text/css">
 .tiger-stripe{text-align:left;font-weight:normal;font-size:14px;}
 .tiger-stripe tr:nth-child(odd) {background: #E3EAEB;color:#000000;text-align:left;font-weight:normal;font-size:14px;}
+
+
 </style>
  
 </head>

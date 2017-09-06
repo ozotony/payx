@@ -2,7 +2,7 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" data-ng-app="myModule">
 <head id="Head1" runat="server">
     <title>PAYMENT HISTORY</title>
      <link href="../css/style.css" rel="stylesheet" type="text/css" /> 
@@ -19,7 +19,16 @@
     <script src="../js/ui/jquery.ui.tabs.js" type="text/javascript"></script>
     <script src="../js/ui/jquery.ui.datepicker.js" type="text/javascript"></script>
     <script src="/js/funk.js" type="text/javascript"></script>
+    <script  type="text/javascript" src="../js/angular.min.js"></script>
+    <script  type="text/javascript" src="../js/alasql.min.js"></script>
 
+    <script  type="text/javascript" src="../js/ng-csv.min.js"></script>
+    <script  type="text/javascript" src="../js/xlsx.core.min.js"></script>
+     <script  type="text/javascript" src="../js/angular-sanitize.min.js"></script>
+    <script  type="text/javascript" src="../js/AngularLogin3.js"></script>
+    <link href="../css/loading-bar.css" rel="stylesheet" />
+    <script type="text/javascript" src="../js/loading-bar.js"></script>
+   
  
 <script type="text/javascript">
     $(function () {
@@ -49,7 +58,7 @@ a
 }
 </style>
 </head>
-<body>
+<body ng-controller="myController" >
     <form id="form1" runat="server">
     <div>
                  <table align="center"  style="width:80%" class="form" >
@@ -226,8 +235,10 @@ a
         </tr>
         <tr>
         <td align="center">
+          
         <input type="button" name="Printform" id="Printform" value="Print" onclick="PrintPartner('ReportGrid');return false" class="button" />
-            <asp:Button ID="btnExportExcel" runat="server" class="button" onclick="btnExportExcel_Click" Text="Export Excel" />
+            <asp:Button ID="btnExportExcel" runat="server" Visible="false" class="button" onclick="btnExportExcel_Click" Text="Export Excel" />
+             <button type="button" class="button" ng-click="Export()" >Export To Excel</button> 
         </td>
         </tr>
 </table>
@@ -415,5 +426,6 @@ a
            
     </div>
     </form>
+   
 </body>
 </html>

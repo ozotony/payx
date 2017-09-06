@@ -51,6 +51,7 @@
         protected GridView gvAg7;
         protected GridView gvAg8;
         protected GridView gvAg9;
+        protected GridView gvAg10;
 
         protected Panel ppp;
         protected Label Label1;
@@ -755,6 +756,71 @@
                 int amt = Convert.ToInt32(gvAg9.Rows[rowIndex].Cells[5].Text);
                 TextBox box = (TextBox)gvAg9.Rows[rowIndex].Cells[6].FindControl("txtAg");
                 ImageButton button = (ImageButton)gvAg9.Rows[rowIndex].Cells[7].FindControl("lbAddAg");
+                if (((box.Text != "") && (box.Text != "0")) && (val.IsInt32(box.Text) == 0))
+                {
+                    if (button.ImageUrl != "../images/remove.png")
+                    {
+                        double num3 = calcTotalAmt(Convert.ToInt32(box.Text), amt);
+                        item.xid = text;
+                        item.amt = amt;
+                        item.qty = box.Text;
+                        item.total_amt = num3;
+                        item.item_code = key;
+                        item.item_desc = str3;
+                        item.init_amt = str4;
+                        item.tech_amt = str5;
+                        if (!lt_cart.Contains(item))
+                        {
+                            lt_cart.Add(item);
+                            Session["SItems"] = st_items;
+                        }
+                        if (!st_items.ContainsKey(key))
+                        {
+                            st_items.Add(key, item);
+                            Session["SCart"] = lt_cart;
+                        }
+                        box.ReadOnly = true;
+                        button.ImageUrl = "../images/remove.png";
+                    }
+                    else
+                    {
+                        if (lt_cart.Contains(st_items[key]))
+                        {
+                            lt_cart.Remove(st_items[key]);
+                        }
+                        box.Text = "0";
+                        box.ReadOnly = false;
+                        button.ImageUrl = "../images/add_btn.png";
+                    }
+                }
+                displayTotals();
+                show_inv = 1;
+            }
+        }
+
+        protected void gvAg_RowCommand10(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "AgStatusClick")
+            {
+                XObjs.Shopping_card item = new XObjs.Shopping_card();
+                if (Session["SCart"] != null)
+                {
+                    lt_cart = (List<XObjs.Shopping_card>)Session["SCart"];
+                }
+                if (Session["SItems"] != null)
+                {
+                    st_items = (SortedList<string, XObjs.Shopping_card>)Session["SItems"];
+                }
+                GridViewRow namingContainer = (GridViewRow)((ImageButton)e.CommandSource).NamingContainer;
+                int rowIndex = namingContainer.RowIndex;
+                string key = e.CommandArgument.ToString();
+                string text = gvAg10.Rows[rowIndex].Cells[0].Text;
+                string str3 = gvAg10.Rows[rowIndex].Cells[2].Text;
+                string str4 = gvAg10.Rows[rowIndex].Cells[3].Text;
+                string str5 = gvAg10.Rows[rowIndex].Cells[4].Text;
+                int amt = Convert.ToInt32(gvAg10.Rows[rowIndex].Cells[5].Text);
+                TextBox box = (TextBox)gvAg10.Rows[rowIndex].Cells[6].FindControl("txtAg");
+                ImageButton button = (ImageButton)gvAg10.Rows[rowIndex].Cells[7].FindControl("lbAddAg");
                 if (((box.Text != "") && (box.Text != "0")) && (val.IsInt32(box.Text) == 0))
                 {
                     if (button.ImageUrl != "../images/remove.png")
@@ -2139,6 +2205,100 @@
                     Session["c_app"] = c_app;
                     XObjs.Shopping_card item = new XObjs.Shopping_card();
                     foreach (GridViewRow row in gvAg9.Rows)
+                    {
+                        TextBox chkBox = row.FindControl("txtAg") as TextBox;
+
+                        chkBox.Text = "1";
+
+
+                        string key = row.Cells[1].Text;
+                        //  string key = gvAg2.DataKeys[row.RowIndex].Value.ToString();
+
+
+                        string text = row.Cells[0].Text;
+                        string str3 = row.Cells[2].Text;
+                        string str4 = row.Cells[3].Text;
+                        string str5 = row.Cells[4].Text;
+                        int amt = Convert.ToInt32(row.Cells[5].Text);
+
+
+                        double num3 = calcTotalAmt(Convert.ToInt32(chkBox.Text), amt);
+                        item.xid = text;
+                        item.amt = amt;
+                        item.qty = chkBox.Text;
+                        item.total_amt = num3;
+                        item.item_code = key;
+                        item.item_desc = str3;
+                        item.init_amt = str4;
+                        item.tech_amt = str5;
+                        if (!lt_cart.Contains(item))
+                        {
+                            lt_cart.Add(item);
+                            Session["SItems"] = st_items;
+                        }
+                        if (!st_items.ContainsKey(key))
+                        {
+                            st_items.Add(key, item);
+                            Session["SCart"] = lt_cart;
+                        }
+
+
+                    }
+                    Session["AgentType"] = "Agent";
+                    fillAmtList();
+                    AddFeeList();
+
+
+
+                }
+
+
+
+                if (base.Request.Form["PhoneNumber13"] != null)
+                {
+                    txt_app_no.Text = base.Request.Form["PhoneNumber13"].ToString();
+                    adminID = base.Request.Form["pwalletID"].ToString();
+                    Session["pwalletID"] = adminID;
+
+                    c_reg = ret.getRegistrationByID(adminID);
+                    Session["c_reg"] = c_reg;
+
+                    gvTm.Visible = false;
+
+
+                    gvPt.Visible = false;
+
+                    gvDs.Visible = false;
+
+                    gvAg.Visible = false;
+
+                    gvAg2.Visible = false;
+                    gvAg3.Visible = false;
+                    gvAg4.Visible = false;
+                    gvAg5.Visible = false;
+                    gvAg6.Visible = false;
+                    gvAg9.Visible = false;
+                    gvAg10.Visible = true;
+
+                    ppp.Visible = false;
+
+                    if (base.Request.Form["onlineid"] != null)
+                    {
+                        Session["onlineid14"] = base.Request.Form["onlineid"].ToString();
+                    }
+
+                    Session["c_app"] = null;
+                    txt_app_addy.Text = base.Request.Form["address2"].ToString();
+                    txt_app_email.Text = base.Request.Form["email2"].ToString();
+                    txt_app_no.Text = base.Request.Form["PhoneNumber77"].ToString();
+                    txt_app_name.Text = base.Request.Form["xname2"].ToString();
+                    c_app.address = txt_app_addy.Text;
+                    c_app.xemail = txt_app_email.Text;
+                    c_app.xmobile = txt_app_no.Text;
+                    c_app.xname = txt_app_name.Text;
+                    Session["c_app"] = c_app;
+                    XObjs.Shopping_card item = new XObjs.Shopping_card();
+                    foreach (GridViewRow row in gvAg10.Rows)
                     {
                         TextBox chkBox = row.FindControl("txtAg") as TextBox;
 

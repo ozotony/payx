@@ -37,6 +37,17 @@
             return num;
         }
 
+
+        public int JournalAdd(string agentid, string batchno, string transref, string regdate)
+        {
+            SqlConnection connection = new SqlConnection(hf.ConnectXpay());
+            SqlCommand command = new SqlCommand("INSERT INTO JournalPublication (agentid,batchno,transref,regdate) VALUES ('" + agentid + "','" + batchno + "','" + transref + "','" + regdate + "') SELECT SCOPE_IDENTITY()", connection);
+            connection.Open();
+            int num = Convert.ToInt32(command.ExecuteScalar());
+            connection.Close();
+            return num;
+        }
+
         public int addHwallet(XObjs.Hwallet x)
         {
             SqlConnection connection = new SqlConnection(hf.ConnectXpay());

@@ -31,7 +31,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/23/2014 23:02:30</publishTime>
     </File>
     <File Include="A/m_payx.aspx">
-      <publishTime>10/10/2016 11:31:38</publishTime>
+      <publishTime>06/28/2017 15:50:40</publishTime>
     </File>
     <File Include="agt_reg.aspx">
       <publishTime>07/23/2014 22:39:25</publishTime>
@@ -124,10 +124,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/23/2014 22:39:04</publishTime>
     </File>
     <File Include="bin/PayX.dll">
-      <publishTime>10/10/2016 13:15:30</publishTime>
+      <publishTime>06/29/2017 13:26:35</publishTime>
     </File>
     <File Include="bin/PayX.XmlSerializers.dll">
-      <publishTime>10/10/2016 13:15:32</publishTime>
+      <publishTime>06/29/2017 13:26:36</publishTime>
     </File>
     <File Include="b_collect/xup.aspx">
       <publishTime>07/23/2014 23:04:22</publishTime>
@@ -200,6 +200,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="css/jquery.ui.timepicker.css">
       <publishTime>07/23/2014 23:23:55</publishTime>
+    </File>
+    <File Include="css/loading-bar.css">
+      <publishTime>02/24/2017 14:24:34</publishTime>
     </File>
     <File Include="css/ng-modal.css">
       <publishTime>02/28/2015 16:09:50</publishTime>
@@ -510,6 +513,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="fonts/lato/lato-regular.woff">
       <publishTime>05/21/2015 13:17:13</publishTime>
     </File>
+    <File Include="Handler/ExportToExcel.ashx">
+      <publishTime>02/24/2017 12:06:08</publishTime>
+    </File>
     <File Include="Handler/GetTransaction.ashx">
       <publishTime>02/28/2015 16:22:21</publishTime>
     </File>
@@ -792,8 +798,14 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="js/ajaxfileupload.js">
       <publishTime>07/23/2014 23:24:16</publishTime>
     </File>
+    <File Include="js/alasql.min.js">
+      <publishTime>02/24/2017 11:27:02</publishTime>
+    </File>
     <File Include="js/angular-datepicker.min.js">
       <publishTime>05/21/2015 13:08:16</publishTime>
+    </File>
+    <File Include="js/angular-sanitize.min.js">
+      <publishTime>02/24/2017 12:03:19</publishTime>
     </File>
     <File Include="js/angular.min.js">
       <publishTime>02/28/2015 16:07:49</publishTime>
@@ -802,7 +814,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/21/2015 13:20:20</publishTime>
     </File>
     <File Include="js/AngularLogin2.js">
-      <publishTime>10/23/2016 13:30:29</publishTime>
+      <publishTime>07/04/2017 16:07:35</publishTime>
+    </File>
+    <File Include="js/AngularLogin3.js">
+      <publishTime>02/25/2017 14:33:13</publishTime>
     </File>
     <File Include="js/bootstrap.min.js">
       <publishTime>02/28/2015 16:08:11</publishTime>
@@ -824,6 +839,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="js/jquery.js">
       <publishTime>07/23/2014 23:24:16</publishTime>
+    </File>
+    <File Include="js/loading-bar.js">
+      <publishTime>02/24/2017 14:24:07</publishTime>
+    </File>
+    <File Include="js/ng-csv.min.js">
+      <publishTime>02/24/2017 11:27:11</publishTime>
     </File>
     <File Include="js/ng-modal.min.js">
       <publishTime>02/28/2015 16:10:56</publishTime>
@@ -1218,6 +1239,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="js/ui/minified/jquery.ui.widget.min.js">
       <publishTime>07/23/2014 23:24:16</publishTime>
     </File>
+    <File Include="js/xlsx.core.min.js">
+      <publishTime>02/24/2017 11:27:18</publishTime>
+    </File>
     <File Include="lo.ashx">
       <publishTime>07/23/2014 22:39:25</publishTime>
     </File>
@@ -1303,7 +1327,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/26/2014 11:42:55</publishTime>
     </File>
     <File Include="X/pay_his.aspx">
-      <publishTime>11/20/2014 23:46:30</publishTime>
+      <publishTime>02/27/2017 14:29:52</publishTime>
     </File>
     <File Include="X/pay_his2.aspx">
       <publishTime>06/16/2016 12:06:52</publishTime>
@@ -1360,7 +1384,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/23/2014 23:12:33</publishTime>
     </File>
     <File Include="xis/pd/xreturn/index.aspx">
-      <publishTime>09/16/2016 10:54:55</publishTime>
+      <publishTime>03/07/2017 11:55:01</publishTime>
     </File>
     <File Include="xis/pd/xreturn/index2.aspx">
       <publishTime>07/23/2014 23:15:35</publishTime>
