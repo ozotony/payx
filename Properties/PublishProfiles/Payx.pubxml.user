@@ -124,10 +124,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/23/2014 22:39:04</publishTime>
     </File>
     <File Include="bin/PayX.dll">
-      <publishTime>06/29/2017 13:26:35</publishTime>
+      <publishTime>02/21/2018 12:19:26</publishTime>
     </File>
     <File Include="bin/PayX.XmlSerializers.dll">
-      <publishTime>06/29/2017 13:26:36</publishTime>
+      <publishTime>02/21/2018 12:19:27</publishTime>
     </File>
     <File Include="b_collect/xup.aspx">
       <publishTime>07/23/2014 23:04:22</publishTime>
@@ -516,6 +516,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Handler/ExportToExcel.ashx">
       <publishTime>02/24/2017 12:06:08</publishTime>
     </File>
+    <File Include="Handler/GetPayments.ashx">
+      <publishTime>02/07/2018 14:36:48</publishTime>
+    </File>
+    <File Include="Handler/GetPayments2.ashx">
+      <publishTime>02/08/2018 13:18:26</publishTime>
+    </File>
     <File Include="Handler/GetTransaction.ashx">
       <publishTime>02/28/2015 16:22:21</publishTime>
     </File>
@@ -817,7 +823,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/04/2017 16:07:35</publishTime>
     </File>
     <File Include="js/AngularLogin3.js">
-      <publishTime>02/25/2017 14:33:13</publishTime>
+      <publishTime>02/13/2018 11:10:24</publishTime>
     </File>
     <File Include="js/bootstrap.min.js">
       <publishTime>02/28/2015 16:08:11</publishTime>
@@ -848,6 +854,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="js/ng-modal.min.js">
       <publishTime>02/28/2015 16:10:56</publishTime>
+    </File>
+    <File Include="js/smart-table.min.js">
+      <publishTime>03/25/2015 13:13:47</publishTime>
     </File>
     <File Include="js/sweet-alert.min.js">
       <publishTime>02/28/2015 16:08:00</publishTime>
@@ -1327,10 +1336,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/26/2014 11:42:55</publishTime>
     </File>
     <File Include="X/pay_his.aspx">
-      <publishTime>02/27/2017 14:29:52</publishTime>
+      <publishTime>02/21/2018 16:20:07</publishTime>
     </File>
     <File Include="X/pay_his2.aspx">
       <publishTime>06/16/2016 12:06:52</publishTime>
+    </File>
+    <File Include="X/pay_his3.aspx">
+      <publishTime>02/09/2018 13:42:23</publishTime>
     </File>
     <File Include="X/pay_his_isw.aspx">
       <publishTime>10/14/2014 18:04:36</publishTime>
@@ -1351,7 +1363,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/23/2014 23:14:54</publishTime>
     </File>
     <File Include="xis/pd/tx/formx.aspx">
-      <publishTime>07/23/2014 23:14:45</publishTime>
+      <publishTime>07/24/2017 16:52:37</publishTime>
     </File>
     <File Include="xis/pd/tx/index.aspx">
       <publishTime>07/23/2014 23:14:31</publishTime>

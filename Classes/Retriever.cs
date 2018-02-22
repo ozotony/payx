@@ -1225,10 +1225,12 @@
           //  command_text += " SUBSTRING(InterSwitchPostFields.TransactionDate,1,19) as TransactionDate,twallet.transID,applicant.xname,applicant.address,applicant.xemail,applicant.xmobile,InterSwitchPostFields.isw_conv_fee AS isw_amt,fee_details.tech_amt *convert(int,fee_details.xqty) as tech_amt ,fee_details.xqty as  Qty ,fee_list.init_amt  as Cld_Fees,InterSwitchPostFields.pay_ref as pay_ref ,fee_list.item_code as item_code  ,fee_list.xdesc as xdesc  FROM InterSwitchPostFields ";
             command_text += " SUBSTRING(InterSwitchPostFields.TransactionDate,1,19) as TransactionDate,(hwallet.transid + '-' + hwallet.fee_detailsID + '-' + cast( hwallet.xid as varchar) ) as transid,applicant.xname,applicant.address,applicant.xemail,applicant.xmobile,InterSwitchPostFields.isw_conv_fee AS isw_amt,fee_details.tech_amt *convert(int,fee_details.xqty) as tech_amt ,fee_details.xqty as  Qty ,fee_list.init_amt  as Cld_Fees,InterSwitchPostFields.pay_ref as pay_ref ,fee_list.item_code as item_code  ,fee_list.xdesc as xdesc  FROM InterSwitchPostFields ";
             command_text += " LEFT OUTER JOIN twallet ON InterSwitchPostFields.txn_ref=twallet.transID  ";
-            command_text += " LEFT OUTER JOIN hwallet ON hwallet.transID=twallet.transID  ";
+            command_text += " LEFT OUTER JOIN fee_details ON fee_details.twalletID=twallet.xid ";
+          //  command_text += " LEFT OUTER JOIN hwallet ON hwallet.transID=twallet.transID  ";
+            command_text += " LEFT OUTER JOIN hwallet ON hwallet.fee_detailsID=fee_details.xid ";
             command_text += " LEFT OUTER JOIN applicant ON applicant.xid=twallet.applicantID ";
 
-            command_text += " LEFT OUTER JOIN fee_details ON fee_details.twalletID=twallet.xid ";
+           
 
           
 

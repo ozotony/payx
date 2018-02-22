@@ -28,6 +28,7 @@
     <script  type="text/javascript" src="../js/AngularLogin3.js"></script>
     <link href="../css/loading-bar.css" rel="stylesheet" />
     <script type="text/javascript" src="../js/loading-bar.js"></script>
+     <script src="../js/smart-table.min.js"></script>
    
  
 <script type="text/javascript">

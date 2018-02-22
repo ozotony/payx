@@ -28,6 +28,7 @@
     <script  type="text/javascript" src="../js/AngularLogin3.js"></script>
     <link href="../css/loading-bar.css" rel="stylesheet" />
     <script type="text/javascript" src="../js/loading-bar.js"></script>
+     <script src="../js/smart-table.min.js"></script>
    
  
 <script type="text/javascript">
@@ -89,11 +90,11 @@ a
                 <%=Session["new_grand_tot_amt"].ToString()%> NGN</td>
 
             <td align="right" style="width:25%;font-size:11px;" colspan="2">
-             <strong>GRAND TECH AMOUNT:</strong></td>
+            </td>
 
              <td align="left" style="width:25%;font-weight:bold; color:Green;font-size:11px;" colspan="2">
                 &nbsp;
-                <%=Session["new_grand_tot_amt2"].ToString()%> NGN</td>
+              </td>
         </tr>
          <tr>
             <td align="center" style="background-color:#1C5E55; color:#ffffff;" colspan="8">&nbsp;</td>

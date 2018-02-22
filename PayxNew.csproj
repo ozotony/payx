@@ -308,6 +308,7 @@
     <Content Include="js\loading-bar.js" />
     <Content Include="js\ng-csv.min.js" />
     <Content Include="js\ng-modal.min.js" />
+    <Content Include="js\smart-table.min.js" />
     <Content Include="js\sweet-alert.min.js" />
     <Content Include="js\xlsx.core.min.js" />
     <Content Include="P\charge_back.aspx" />
@@ -337,6 +338,7 @@
     <Content Include="X\m_struc.aspx" />
     <Content Include="X\pay_his.aspx" />
     <Content Include="X\pay_his2.aspx" />
+    <Content Include="X\pay_his3.aspx" />
     <Content Include="X\pay_his_isw.aspx" />
     <Content Include="X\pay_stats.aspx" />
     <Content Include="X\profile.aspx" />
@@ -374,6 +376,8 @@
     <Content Include="fonts\lato\lato-regular.ttf" />
     <Content Include="fonts\lato\lato-regular.woff" />
     <Content Include="Handler\ExportToExcel.ashx" />
+    <Content Include="Handler\GetPayments.ashx" />
+    <Content Include="Handler\GetPayments2.ashx" />
     <None Include="js\jquery-1.4.1-vsdoc.js" />
     <Content Include="js\jquery-1.7.2.min.js" />
     <Content Include="js\jquery-ui-1.8.16.custom.min.js" />
@@ -603,6 +607,7 @@
     <Compile Include="Classes\Helpers.cs" />
     <Compile Include="Classes\MarkInfo.cs" />
     <Compile Include="Classes\Messenger.cs" />
+    <Compile Include="Classes\Payments.cs" />
     <Compile Include="Classes\Registration.cs" />
     <Compile Include="Classes\RemotePost.cs" />
     <Compile Include="Classes\Retriever.cs" />
@@ -624,6 +629,12 @@
     <Compile Include="ExcelClasses\FormatInfo.cs" />
     <Compile Include="Handler\ExportToExcel.ashx.cs">
       <DependentUpon>ExportToExcel.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handler\GetPayments.ashx.cs">
+      <DependentUpon>GetPayments.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handler\GetPayments2.ashx.cs">
+      <DependentUpon>GetPayments2.ashx</DependentUpon>
     </Compile>
     <Compile Include="Handler\GetTransaction.ashx.cs">
       <DependentUpon>GetTransaction.ashx</DependentUpon>
@@ -789,6 +800,13 @@
     </Compile>
     <Compile Include="X\pay_his2.aspx.designer.cs">
       <DependentUpon>pay_his2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="X\pay_his3.aspx.cs">
+      <DependentUpon>pay_his3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="X\pay_his3.aspx.designer.cs">
+      <DependentUpon>pay_his3.aspx</DependentUpon>
     </Compile>
     <Compile Include="X\pay_his_isw.cs">
       <SubType>ASPXCodeBehind</SubType>

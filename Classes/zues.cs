@@ -1,21 +1,27 @@
 ﻿namespace XPay.Classes
 {
     using Odyssey;
+    using PayX.Classes;
     using System;
     using System.Collections.Generic;
     using System.Configuration;
     using System.Data;
     using System.Data.SqlClient;
     using System.IO;
+    using System.Linq;
+    using System.Xml;
+    using System.Xml.Linq;
 
     public class zues
     {
+        private Helpers hf = new Helpers();
         public string a_regadmin(string xname, string xrole, string xemail, string telephone1, string telephone2, string xsection, string pwalletID, string pass)
         {
             string connectionString = this.Connect();
             string str2 = DateTime.Today.Date.ToString("yyyy-MM-dd");
             string str3 = "";
-            new Random();
+            
+        new Random();
             SqlConnection connection = new SqlConnection(connectionString);
             connection.Open();
             SqlCommand command = new SqlCommand("sp_a_TmRegAdmin", connection) {
@@ -162,6 +168,13 @@
             return ConfigurationManager.ConnectionStrings["cldConnectionString"].ConnectionString;
         }
 
+        public string Connect2()
+        {
+            return ConfigurationManager.ConnectionStrings["homeConnectionString"].ConnectionString;
+        }
+
+        
+
         public int e_PwalletStatus(string xID, string status, string data_status)
         {
             SqlConnection connection = new SqlConnection(this.Connect());
@@ -182,6 +195,166 @@
                 num = Convert.ToInt32(xID);
             }
             return num;
+        }
+
+
+        public List<Payments> getPayment2(string startdate, string enddate)
+        {
+            string str = "";
+            int sn = 1;
+            SqlConnection connection = new SqlConnection(hf.ConnectXpay());
+            SqlCommand command = new SqlCommand("select fee_list.item_code , fee_list.item,fee_details.init_amt,fee_details.tech_amt,  (hwallet.transid + '-' + hwallet.fee_detailsID + '-' + cast( hwallet.xid as varchar) ) as transid ,InterSwitchPostFields.TransactionDate,InterSwitchPostFields.isw_conv_fee from twallet  LEFT OUTER JOIN fee_details ON  twallet.xid=fee_details.twalletID LEFT OUTER JOIN fee_list ON fee_details.fee_listID=fee_list.xid LEFT OUTER JOIN applicant ON  twallet.applicantID=applicant.xid  LEFT OUTER JOIN InterSwitchPostFields ON  twallet.transID = InterSwitchPostFields.txn_ref LEFT OUTER JOIN hwallet ON hwallet.fee_detailsID=fee_details.xid where twallet.xpay_status='1'    and SUBSTRING(InterSwitchPostFields.TransactionDate,1,10) BETWEEN '" + startdate + "' AND '" + enddate + "' ", connection);
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection);
+            List<Payments> xk = new List<Payments>();
+            while (reader.Read())
+            {
+                Payments pp = new Payments();
+                pp.transID = reader["transid"].ToString();
+                pp.sn = sn.ToString();
+                pp.init_amt = reader["init_amt"].ToString();
+                pp.tech_amt = reader["tech_amt"].ToString();
+                pp.xdesc = reader["item"].ToString();
+
+                pp.code = reader["item_code"].ToString(); 
+                pp.TransactionDate = reader["TransactionDate"].ToString();
+
+                pp.convenient_fee =reader["isw_conv_fee"].ToString();
+
+                sn++;
+
+                xk.Add(pp);
+            }
+            reader.Close();
+            connection.Close();
+            return xk;
+        }
+
+        public List<Payments> getPayment3(string startdate, string enddate)
+        {
+            string str = "";
+            int sn = 1;
+            SqlConnection connection = new SqlConnection(this.Connect2());
+            SqlCommand command = new SqlCommand("select paymentcode as item_code  , ItemDescription as item ,ItemAmount as init_amt ,SplitAmount as  tech_amt , TransactionID as transid ,TransactionDate as TransactionDate,CAST(ReturnedXML as varchar(8000)) as ReturnedXML  from branchcollecttransactions   where  TransactionDate BETWEEN '" + startdate + "' AND '" + enddate + "'  and DATALENGTH(ReturnedXML) > 1000 ", connection);
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection);
+            List<Payments> xk = new List<Payments>();
+            while (reader.Read())
+            {
+                Payments pp = new Payments();
+                pp.transID = reader["transid"].ToString();
+                pp.sn = sn.ToString();
+               // pp.init_amt = reader["init_amt"].ToString();
+               // var dd = reader["tech_amt"].ToString();
+               // pp.tech_amt = dd.Replace('"', ' ').Trim(); 
+                pp.xdesc = reader["item"].ToString();
+
+                pp.code = reader["item_code"].ToString();
+                pp.TransactionDate = reader["TransactionDate"].ToString();
+                try
+                {
+                    double amt = 0.0;
+                    var vxml = reader["ReturnedXML"].ToString();
+                    XDocument xmlDoc = XDocument.Parse(vxml);
+                    // LogMessageToFile(vxml);
+                    //  XmlDocument xmltest = new XmlDocument();
+                    //   xmltest.LoadXml(vxml);
+
+                    // var target = xmlDoc.Elements("BranchCollectResponse");
+
+                    foreach (XElement element in xmlDoc.Descendants("AcquiringBankAccountDetails"))
+                    {
+                        var kk = element.Element("AccountNo").Value;
+                        if (kk == "1770531962" || kk == "1790125721")
+                        {
+                            amt = amt + Convert.ToDouble(element.Element("AccountSettlementAmount").Value);
+                        }
+
+                        if (kk == "1771168826" || kk == "1771364037")
+                        {
+
+                            pp.tech_amt = element.Element("AccountSettlementAmount").Value;
+                        }
+
+                        if (kk == "1770393883")
+                        {
+
+                            pp.init_amt= element.Element("AccountSettlementAmount").Value;
+                        }
+
+
+
+
+
+                        //  LogMessageToFile(element.Element("BankName").Value);
+                        // Console.WriteLine(element);
+                    }
+
+                    pp.convenient_fee =Convert.ToString(amt);
+
+
+
+                    // XmlNodeList elemList = doc.Document.Element.;
+
+                    // var vxml =reader["SentXmlMessage"].ToString();
+
+                    // XmlDocument xmltest = new XmlDocument();
+                    // xmltest.LoadXml(vxml);
+
+
+
+                    //foreach (var employee in BranchCollectRequest)
+                    //{
+                    //    foreach (var employee2 in employee.Elements("BankAccounts").Elements("BankDetails").Elements("AccountDetails"))
+                    //    {
+                    //        var vv = employee2.Attribute("SplitAmount").Value;
+
+                    //        pp.convenient_fee = vv;
+
+                    //    }
+
+                    //}
+
+                }
+
+                catch(Exception ee)
+                {
+                    var pp4 = ee.Message;
+                    //Console.WriteLine(pp4);
+
+                    LogMessageToFile(pp4);
+                }
+
+                    sn++;
+
+                xk.Add(pp);
+            }
+            reader.Close();
+            connection.Close();
+            return xk;
+        }
+
+        public string GetTempPath()
+        {
+            string path = System.Environment.GetEnvironmentVariable("TEMP");
+            if (!path.EndsWith("\\")) path += "\\";
+            return path;
+        }
+
+        public void LogMessageToFile(string msg)
+        {
+            System.IO.StreamWriter sw = System.IO.File.AppendText(
+                GetTempPath() + "My Log File.txt");
+            try
+            {
+                string logLine = System.String.Format(
+                    "{0:G}: {1}.", System.DateTime.Now, msg);
+                sw.WriteLine(logLine);
+            }
+            finally
+            {
+                sw.Close();
+            }
         }
 
         public int e_regadmin(string xname, string xpass, string xrole, string xemail, string telephone1, string telephone2, string xsection, string pwalletID, string xID, string visible)
