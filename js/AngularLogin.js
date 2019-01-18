@@ -1,4 +1,8 @@
 ﻿var app = angular.module('myModule', ['720kb.datepicker']);
+//var serviceBasePayx = "http://payx.com.ng/";
+var serviceBasePayx = "http://localhost:21327/";
+
+
 app.filter('offset', function () {
     return function (input, start) {
         start = parseInt(start, 10);
@@ -23,13 +27,13 @@ app.controller('myController', ['$scope', '$http', '$rootScope', function ($scop
        
         var formData = new FormData();
         formData.append("vid", $scope.trans);
-
+      
 
         $.ajax({
             type: "POST",
           //  url: 'http://payx.com.ng/Handler/GetTransaction2.ashx',
 
-            url: 'http://payx.com.ng/Handler/GetTransaction2.ashx',
+            url: serviceBasePayx + 'Handler/GetTransaction2.ashx',
             data: formData,
 
             contentType: false,
@@ -38,6 +42,9 @@ app.controller('myController', ['$scope', '$http', '$rootScope', function ($scop
             dataType: 'json',
             success: function (data) {
                 $scope.BranchCollect = data;
+
+                
+                console.log(data)
 
              //   alert($scope.BranchCollect.cust_id)
               
@@ -82,7 +89,7 @@ app.controller('myController', ['$scope', '$http', '$rootScope', function ($scop
 
          $.ajax({
              type: "POST",
-             url: 'http://payx.com.ng/Handler/GetTransaction.ashx',
+             url: serviceBasePayx + 'Handler/GetTransaction.ashx',
              data: formData,
 
              contentType: false,

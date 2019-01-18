@@ -9,7 +9,7 @@
     {
       //  private string hostname = "mail.einaosolutions.com";
 
-        private string hostname = "88.150.164.30";
+        private string hostname = "5.77.54.44";
         
     
         private MailMessage mail = new MailMessage();

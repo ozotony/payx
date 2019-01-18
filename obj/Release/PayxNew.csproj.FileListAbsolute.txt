@@ -34,4 +34,6 @@ G:\PayxNew\PayxNew\obj\Release\PayxNew.csprojResolveAssemblyReference.cache
 G:\PayxNew\PayxNew\obj\Release\PayX.dll
 G:\PayxNew\PayxNew\obj\Release\PayX.pdb
 G:\PayxNew\PayxNew\obj\Release\PayX.XmlSerializers.dll
-C:\Einao\VS Source\Projects\PayxNew\PayxNew\obj\Release\PayxNew.csprojResolveAssemblyReference.cache
+C:\Einao\VS Source\Projects\PayxNew\PayxNew\obj\Release\PayxNew.csproj.CoreCompileInputs.cache
+C:\Einao\VS Source\Projects\PayxNew\PayxNew\obj\Release\PayxNew.csproj.CopyComplete
+C:\Einao\VS Source\Projects\PayxNew\PayxNew\obj\Release\PayxNew.csprojAssemblyReference.cache

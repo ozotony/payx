@@ -273,6 +273,10 @@
                     SelectCommand="SELECT *,init_amt+tech_amt AS amt FROM [fee_list] WHERE xcategory='tm' and  item_code not in ('T003','T008','T009','T021','T014') ">
                 </asp:SqlDataSource>
 
+                <asp:SqlDataSource ID="flPt2" runat="server" 
+                    ConnectionString="<%$ ConnectionStrings:xpayConnectionString %>" 
+                    SelectCommand="SELECT *,init_amt+tech_amt AS amt FROM [fee_list] WHERE xcategory='pt' and xid='34' ">
+                </asp:SqlDataSource>
               
 
                  <asp:SqlDataSource ID="flDs" runat="server" 
@@ -284,6 +288,8 @@
                     ConnectionString="<%$ ConnectionStrings:xpayConnectionString %>" 
                     SelectCommand="SELECT *,init_amt+tech_amt AS amt FROM [fee_list] WHERE xcategory='pt'">
                 </asp:SqlDataSource>
+
+                 
             </td>
         </tr>
        <tr >
@@ -384,7 +390,10 @@
                     <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
                     <RowStyle BackColor="#E3EAEB" />
                     <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
-                </asp:GridView></td>
+                </asp:GridView>
+                 
+
+            </td>
         </tr>
         <tr >
             <td align="center" style="background-color:#1C5E55; color:#ffffff;">
@@ -1174,6 +1183,80 @@
                     <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
                 </asp:GridView>
 
+
+                  <asp:GridView ID="gvPt3"  runat="server" Visible="false" AutoGenerateColumns="False" 
+                    DataKeyNames="xid" DataSourceID="flPt2" EnableModelValidation="True" 
+                    style="margin-top: 0px; width:100%;" onrowcommand="gvAg_RowCommand10" 
+                    CellPadding="4" ForeColor="#333333" GridLines="Both">
+                    <AlternatingRowStyle BackColor="White" />
+                    <Columns>   
+                        <asp:BoundField DataField="xid" HeaderText="S/N" InsertVisible="False" 
+                            ReadOnly="True" SortExpression="xid" >
+                             <HeaderStyle HorizontalAlign="Left" Width="30px" />
+                            <ItemStyle HorizontalAlign="Left" />
+                             </asp:BoundField>
+                        <asp:BoundField DataField="item_code" HeaderText="ITEM CODE" 
+                            SortExpression="item_code" >
+                            <HeaderStyle HorizontalAlign="Left" Width="70px" />
+                            <ItemStyle HorizontalAlign="Left" />
+                             </asp:BoundField>
+
+                       <asp:BoundField DataField="xdesc" HeaderText="ITEM DESCRIPTION" 
+                            SortExpression="xdesc" >
+                             <HeaderStyle HorizontalAlign="Left" Width="550px"/>
+                        <ItemStyle HorizontalAlign="Left" />
+                        </asp:BoundField>
+
+                         <asp:BoundField DataField="init_amt" HeaderText="APPLICATION FEE(NGN)" >
+                             <HeaderStyle HorizontalAlign="Center"  Width="150px"/>
+                        <ItemStyle HorizontalAlign="Right" />
+                        </asp:BoundField>
+                         
+                         <asp:BoundField DataField="tech_amt"  HeaderText="TECH FEE(NGN)"  >
+                             <HeaderStyle HorizontalAlign="Center" Width="100px"/>
+                        <ItemStyle HorizontalAlign="Right" />
+                        </asp:BoundField>
+
+                        <asp:BoundField DataField="amt" HeaderText="AMOUNT(NGN)" ReadOnly="True" 
+                            SortExpression="amt" >
+                             <HeaderStyle HorizontalAlign="Center" Width="150px"/>
+                        <ItemStyle HorizontalAlign="Right" />
+                        </asp:BoundField>
+
+                        <asp:TemplateField HeaderText="QUANTITY">
+                            <ItemTemplate>
+                                <asp:TextBox ID="txtAg" runat="server" Height="21px" Width="60px"></asp:TextBox>
+                            </ItemTemplate>
+                              <HeaderStyle HorizontalAlign="Left" Width="30px"/>
+                        <ItemStyle HorizontalAlign="Left" />
+                        </asp:TemplateField>
+                         <asp:TemplateField>
+                             <ItemTemplate>
+                                 <asp:ImageButton ID="lbAddAg" ImageUrl="../images/add_btn.png" runat="server" Height="16px" CommandName="AgStatusClick"  CommandArgument='<%#Eval("item_code") %>'  />
+                             </ItemTemplate>
+                              <HeaderStyle HorizontalAlign="Left" Width="30px"/>
+                        <ItemStyle HorizontalAlign="Left" />
+                             </asp:TemplateField>
+                        
+                          <asp:BoundField DataField="init_amt" Visible="false"  >
+                             <HeaderStyle HorizontalAlign="Left" />
+                        <ItemStyle HorizontalAlign="Left" />
+                        </asp:BoundField>  
+                         
+                         <asp:BoundField DataField="tech_amt"  Visible="false"  >
+                             <HeaderStyle HorizontalAlign="Left"/>
+                        <ItemStyle HorizontalAlign="Left" />
+                        </asp:BoundField>
+
+                    </Columns>
+                    <EditRowStyle BackColor="#7C6F57" />
+                    <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="#E3EAEB" />
+                    <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+                </asp:GridView>
+             
                  <asp:GridView ID="gvAg10" runat="server" Visible="false" AutoGenerateColumns="False" 
                     DataKeyNames="xid" DataSourceID="flAg10" EnableModelValidation="True" 
                     style="margin-top: 0px; width:100%;" onrowcommand="gvAg_RowCommand10" 
@@ -1246,6 +1329,8 @@
                     <RowStyle BackColor="#E3EAEB" />
                     <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
                 </asp:GridView>
+
+                
             </td>
         </tr>
         <tr >

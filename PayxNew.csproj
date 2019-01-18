@@ -25,6 +25,7 @@
     <SccProvider>SAK</SccProvider>
     <UseGlobalApplicationHostFile />
     <TargetFrameworkProfile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -310,6 +311,7 @@
     <Content Include="js\ng-modal.min.js" />
     <Content Include="js\smart-table.min.js" />
     <Content Include="js\sweet-alert.min.js" />
+    <Content Include="js\Test2.js" />
     <Content Include="js\xlsx.core.min.js" />
     <Content Include="P\charge_back.aspx" />
     <Content Include="P\pay_his_isw.aspx" />

@@ -80,7 +80,7 @@
     <input name="payment_params" type="hidden" value="payment_split" />
     <input name="xml_data" type="hidden" value='<payment_item_detail>
     <item_details detail_ref="<%=txn_ref %>" institution="Einao Solutions" sub_location="Abuja" location="Lagos"> 
-    <item_detail item_id="1" item_name="Einao Solutions" item_amt="<%=einao_split_amt %>" bank_id="120" acct_num="1771364037" /> 
+    <item_detail item_id="1" item_name="Einao Solutions" item_amt="<%=einao_split_amt %>" bank_id="117" acct_num="1013590643" /> 
     <item_detail item_id="2" item_name="Federal Ministry Of Commerce" item_amt="<%=cld_split_amt %>" bank_id="120" acct_num="1770393883" />
     </item_details>    
     </payment_item_detail>'/>

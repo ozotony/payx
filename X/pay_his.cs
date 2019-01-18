@@ -349,7 +349,7 @@ transID=txt_trans.Text.Trim();
                     Session["transID"] = transID;
                     Session["memberID"] = adminID;
                     Session["transDate"] = twall.xreg_date;
-                    if (twall.xmembertype == "Agent")
+                    if (twall.xmembertype == "Agent" || twall.xmembertype == "agent")
                     {
                         c_reg = ret.getRegistrationByID(twall.xmemberID);
                         fullname = c_reg.Firstname + " " + c_reg.Surname;

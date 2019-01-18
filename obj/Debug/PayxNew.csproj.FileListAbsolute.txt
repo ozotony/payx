@@ -6,3 +6,12 @@ c:\users\anthony\documents\visual studio 2012\Projects\PayxNew\PayxNew\obj\Debug
 c:\users\anthony\documents\visual studio 2012\Projects\PayxNew\PayxNew\bin\NPOI.dll
 c:\users\anthony\documents\visual studio 2012\Projects\PayxNew\PayxNew\bin\Odyssey.dll
 c:\users\anthony\documents\visual studio 2012\Projects\PayxNew\PayxNew\bin\ICSharpCode.SharpZipLib.dll
+C:\Einao\VS Source\Projects\PayxNew\PayxNew\bin\PayX.dll.config
+C:\Einao\VS Source\Projects\PayxNew\PayxNew\bin\PayX.dll
+C:\Einao\VS Source\Projects\PayxNew\PayxNew\bin\PayX.pdb
+C:\Einao\VS Source\Projects\PayxNew\PayxNew\bin\Odyssey.dll
+C:\Einao\VS Source\Projects\PayxNew\PayxNew\obj\Debug\PayxNew.csprojAssemblyReference.cache
+C:\Einao\VS Source\Projects\PayxNew\PayxNew\obj\Debug\PayxNew.csproj.CoreCompileInputs.cache
+C:\Einao\VS Source\Projects\PayxNew\PayxNew\obj\Debug\PayxNew.csproj.CopyComplete
+C:\Einao\VS Source\Projects\PayxNew\PayxNew\obj\Debug\PayX.dll
+C:\Einao\VS Source\Projects\PayxNew\PayxNew\obj\Debug\PayX.pdb

@@ -90,11 +90,11 @@ a
                 <%=Session["new_grand_tot_amt"].ToString()%> NGN</td>
 
             <td align="right" style="width:25%;font-size:11px;" colspan="2">
-            </td>
+             <strong>GRAND TECH AMOUNT:</strong></td>
 
              <td align="left" style="width:25%;font-weight:bold; color:Green;font-size:11px;" colspan="2">
                 &nbsp;
-              </td>
+                <%=Session["new_grand_tot_amt2"].ToString()%> NGN</td>
         </tr>
          <tr>
             <td align="center" style="background-color:#1C5E55; color:#ffffff;" colspan="8">&nbsp;</td>

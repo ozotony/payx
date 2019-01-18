@@ -2,7 +2,8 @@
 
 
 
-var serviceBaseCld = "http://tm.cldng.com";
+var serviceBaseCld = "http://5.77.54.44/EinaoTestEnvironment.CLD";
+var serviceBasePatent = "http://5.77.54.44/EinaoTestEnvironment.Patent";
 //var serviceBaseCld = "http://localhost:49703";
 
 app.controller('myController', ['$scope', '$http', '$rootScope', function ($scope, $http, $rootScope) {
@@ -83,7 +84,10 @@ function (isConfirm) {
         }
 
        
-       
+        if (xname5 == "Patent Amendment") {
+            doUrlPost(serviceBasePatent + "/Patent_Recorder.aspx", xname2, xname3, xname4)
+        }
+
 
 
     } else {

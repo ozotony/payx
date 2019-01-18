@@ -477,6 +477,26 @@
                         }
 
 
+                        if (Session["onlineid15"] != null)
+                        {
+                            Registration dd = new Registration();
+                            xname.Value = "Success";
+                            xname2.Value = Convert.ToString(Session["onlineid15"]);
+                            vtype.Value = "Patent Amendment";
+                            vamount.Value = isr.Amount;
+                            vtransactionid.Value = isr.MerchantReference;
+                            dd.updateHwallet2(txnref.Trim(), "Used");
+         
+                            //  kkx = dp.getMarkInfo(xname2.Value);
+
+                            //Registration dd = new Registration();
+                            //string dpp = Convert.ToString(Session["onlineid2"]);
+                            //dd.updateTransID3(dpp, txnref.Trim());
+
+
+                        }
+
+
 
 
                         sendAlertHtml();
@@ -580,7 +600,7 @@
                 mail.IsBodyHtml = true;
                 String ss2 = "Dear " + px2.CompanyName + ",<br/> <br/>" + " You have successfully made payment for:   .<br/>";
 
-                //  ss2 = ss2 + "To gain access to your account, you would need to click here <a href=\"http://88.150.164.30/IpoTest2/#/Register/" + vid + " \">click</a>   to validate your account and also make payment. " + "<br/><br/><br/>";
+                //  ss2 = ss2 + "To gain access to your account, you would need to click here <a href=\"http://5.77.54.44/IpoTest2/#/Register/" + vid + " \">click</a>   to validate your account and also make payment. " + "<br/><br/><br/>";
               
                 ss2 = ss2 + " <table style=\"border:1px solid black;border-collapse:collapse; \"   >  <tr> <td style=\"border:1px solid black;\" > AGENT CODE </td> <td style=\"border:1px solid black;\" >" + px2.Sys_ID + "</td> </tr>";
 
@@ -641,7 +661,7 @@
 
                 mail.Body = ss;
 
-                SmtpClient client = new SmtpClient("88.150.164.30");
+                SmtpClient client = new SmtpClient("5.77.54.44");
                 //  SmtpClient client = new SmtpClient("192.168.0.12");
 
                 client.Port = port;

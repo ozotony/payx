@@ -40,6 +40,8 @@
         protected GridView gvAg;
         protected GridView gvDs;
         protected GridView gvPt;
+        public GridView gvPt3;
+
         protected GridView gvTm;
         protected GridView gvAg2;
         protected GridView gvAg3;
@@ -993,6 +995,72 @@
             }
         }
 
+        protected void gvPt_RowCommand2(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "PtStatusClick")
+            {
+                XObjs.Shopping_card item = new XObjs.Shopping_card();
+                if (Session["SCart"] != null)
+                {
+                    lt_cart = (List<XObjs.Shopping_card>)Session["SCart"];
+                }
+                if (Session["SItems"] != null)
+                {
+                    st_items = (SortedList<string, XObjs.Shopping_card>)Session["SItems"];
+                }
+                GridViewRow namingContainer = (GridViewRow)((ImageButton)e.CommandSource).NamingContainer;
+                int rowIndex = namingContainer.RowIndex;
+                string key = e.CommandArgument.ToString();
+               
+                string text = gvPt3.Rows[rowIndex].Cells[0].Text;
+                string str3 = gvPt3.Rows[rowIndex].Cells[2].Text;
+                string str4 = gvPt3.Rows[rowIndex].Cells[3].Text;
+                string str5 = gvPt3.Rows[rowIndex].Cells[4].Text;
+                int amt = Convert.ToInt32(gvPt3.Rows[rowIndex].Cells[5].Text);
+                TextBox box = (TextBox)gvPt3.Rows[rowIndex].Cells[6].FindControl("txtPt");
+                ImageButton button = (ImageButton)gvPt3.Rows[rowIndex].Cells[7].FindControl("lbAddPt");
+                if (((box.Text != "") && (box.Text != "0")) && (val.IsInt32(box.Text) == 0))
+                {
+                    if (button.ImageUrl != "../images/remove.png")
+                    {
+                        double num3 = calcTotalAmt(Convert.ToInt32(box.Text), amt);
+                        item.xid = text;
+                        item.amt = amt;
+                        item.qty = box.Text;
+                        item.total_amt = num3;
+                        item.item_code = key;
+                        item.item_desc = str3;
+                        item.init_amt = str4;
+                        item.tech_amt = str5;
+                        if (!lt_cart.Contains(item))
+                        {
+                            lt_cart.Add(item);
+                            Session["SItems"] = st_items;
+                        }
+                        if (!st_items.ContainsKey(key))
+                        {
+                            st_items.Add(key, item);
+                            Session["SCart"] = lt_cart;
+                        }
+                        box.ReadOnly = true;
+                        button.ImageUrl = "../images/remove.png";
+                    }
+                    else
+                    {
+                        if (lt_cart.Contains(st_items[key]))
+                        {
+                            lt_cart.Remove(st_items[key]);
+                        }
+                        box.Text = "0";
+                        box.ReadOnly = false;
+                        button.ImageUrl = "../images/add_btn.png";
+                    }
+                }
+                displayTotals();
+                show_inv = 1;
+            }
+        }
+
         protected void gvTm_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "TmStatusClick")
@@ -1076,7 +1144,108 @@
                 Session["onlineid7"] = null;
                 Session["onlineid8"] = null;
                 Session["onlineid9"] = null;
-                if (base.Request.Form["xname"] != null)
+
+
+                     if (base.Request.Form["PhoneNumber14"] != null)
+                {
+                    txt_app_no.Text = base.Request.Form["PhoneNumber14"].ToString();
+                    adminID = base.Request.Form["pwalletID"].ToString();
+                    Session["pwalletID"] = adminID;
+
+                    c_reg = ret.getRegistrationByID(adminID);
+                    Session["c_reg"] = c_reg;
+
+                    gvTm.Visible = false;
+
+
+                    gvPt.Visible = false;
+
+                    gvDs.Visible = false;
+
+                    gvAg.Visible = false;
+
+                    gvAg2.Visible = false;
+                    gvAg3.Visible = false;
+                    gvAg4.Visible = false;
+                    gvAg5.Visible = false;
+                    gvAg6.Visible = false;
+                    gvAg9.Visible = false;
+                    gvAg10.Visible = false;
+
+
+
+                    gvPt3.Visible = true;
+                    //  ppp.Visible = false;
+
+                   
+
+                    if (base.Request.Form["onlineid"] != null)
+                    {
+                        Session["onlineid15"] = base.Request.Form["onlineid"].ToString();
+                    }
+
+                    Session["c_app"] = null;
+                    txt_app_addy.Text = base.Request.Form["address2"].ToString();
+                    txt_app_email.Text = base.Request.Form["email2"].ToString();
+                    txt_app_no.Text = base.Request.Form["PhoneNumber14"].ToString();
+                    txt_app_name.Text = base.Request.Form["xname2"].ToString();
+                    c_app.address = txt_app_addy.Text;
+                    c_app.xemail = txt_app_email.Text;
+                    c_app.xmobile = txt_app_no.Text;
+                    c_app.xname = txt_app_name.Text;
+                    Session["c_app"] = c_app;
+                    XObjs.Shopping_card item = new XObjs.Shopping_card();
+                    gvPt3.Visible = true;
+                    var kk9 = gvPt3.Rows;
+                    foreach (GridViewRow row in gvPt3.Rows)
+                    {
+                        TextBox chkBox = row.FindControl("txtAg") as TextBox;
+
+                        chkBox.Text = "1";
+
+
+                        string key = row.Cells[1].Text;
+                        //  string key = gvAg2.DataKeys[row.RowIndex].Value.ToString();
+
+
+                        string text = row.Cells[0].Text;
+                        string str3 = row.Cells[2].Text;
+                        string str4 = row.Cells[3].Text;
+                        string str5 = row.Cells[4].Text;
+                        int amt = Convert.ToInt32(row.Cells[5].Text);
+
+
+                        double num3 = calcTotalAmt(Convert.ToInt32(chkBox.Text), amt);
+                        item.xid = text;
+                        item.amt = amt;
+                        item.qty = chkBox.Text;
+                        item.total_amt = num3;
+                        item.item_code = key;
+                        item.item_desc = str3;
+                        item.init_amt = str4;
+                        item.tech_amt = str5;
+                        if (!lt_cart.Contains(item))
+                        {
+                            lt_cart.Add(item);
+                            Session["SItems"] = st_items;
+                        }
+                        if (!st_items.ContainsKey(key))
+                        {
+                            st_items.Add(key, item);
+                            Session["SCart"] = lt_cart;
+                        }
+
+
+                    }
+                    Session["AgentType"] = "Agent";
+                    fillAmtList();
+                    AddFeeList();
+
+
+
+                }
+
+               else  if (base.Request.Form["xname"] != null)
                 {
                  txt_app_name.Text=   base.Request.Form["xname"].ToString();
                 }
@@ -1188,7 +1357,7 @@
                  }
 
 
-                 if (base.Request.Form["PhoneNumber2"] != null)
+                else  if (base.Request.Form["PhoneNumber2"] != null)
                  {
                      txt_app_no.Text = base.Request.Form["PhoneNumber2"].ToString();
                      adminID = base.Request.Form["pwalletID"].ToString();
@@ -1293,7 +1462,7 @@
                  }
 
 
-                 if (base.Request.Form["PhoneNumber3"] != null)
+                else if  (base.Request.Form["PhoneNumber3"] != null)
                  {
                      txt_app_no.Text = base.Request.Form["PhoneNumber3"].ToString();
                      adminID = base.Request.Form["pwalletID"].ToString();
@@ -1397,7 +1566,7 @@
 
                  }
 
-                 if (base.Request.Form["PhoneNumber4"] != null)
+                    else if   (base.Request.Form["PhoneNumber4"] != null)
                  {
                      txt_app_no.Text = base.Request.Form["PhoneNumber4"].ToString();
                      adminID = base.Request.Form["pwalletID"].ToString();
@@ -1502,7 +1671,7 @@
 
                  }
 
-                 if (base.Request.Form["PhoneNumber5"] != null)
+                else if (base.Request.Form["PhoneNumber5"] != null)
                  {
                      txt_app_no.Text = base.Request.Form["PhoneNumber5"].ToString();
                      adminID = base.Request.Form["pwalletID"].ToString();
@@ -1606,7 +1775,7 @@
 
                  }
 
-                 if (base.Request.Form["PhoneNumber6"] != null)
+                else if (base.Request.Form["PhoneNumber6"] != null)
                  {
                      txt_app_no.Text = base.Request.Form["PhoneNumber6"].ToString();
                      adminID = base.Request.Form["pwalletID"].ToString();
@@ -1710,7 +1879,7 @@
 
                  }
 
-                 if (base.Request.Form["PhoneNumber7"] != null)
+                else if (base.Request.Form["PhoneNumber7"] != null)
                  {
                      txt_app_no.Text = base.Request.Form["PhoneNumber7"].ToString();
                      adminID = base.Request.Form["pwalletID"].ToString();
@@ -1799,7 +1968,7 @@
 
                  }
 
-                 if (base.Request.Form["PhoneNumber8"] != null)
+                else if (base.Request.Form["PhoneNumber8"] != null)
                  {
                      txt_app_no.Text = base.Request.Form["PhoneNumber8"].ToString();
                      adminID = base.Request.Form["pwalletID"].ToString();
@@ -1888,7 +2057,7 @@
 
 
                  }
-                 if (base.Request.Form["PhoneNumber9"] != null)
+                else if (base.Request.Form["PhoneNumber9"] != null)
                  {
                      txt_app_no.Text = base.Request.Form["PhoneNumber9"].ToString();
                      adminID = base.Request.Form["pwalletID"].ToString();
@@ -1978,7 +2147,7 @@
 
                  }
 
-                 if (base.Request.Form["PhoneNumber10"] != null)
+                else if (base.Request.Form["PhoneNumber10"] != null)
                  {
                      txt_app_no.Text = base.Request.Form["PhoneNumber10"].ToString();
                      adminID = base.Request.Form["pwalletID"].ToString();
@@ -2069,7 +2238,7 @@
                  }
 
 
-                if (base.Request.Form["PhoneNumber11"] != null)
+                else if (base.Request.Form["PhoneNumber11"] != null)
                 {
                     txt_app_no.Text = base.Request.Form["PhoneNumber11"].ToString();
                     adminID = base.Request.Form["pwalletID"].ToString();
@@ -2161,7 +2330,7 @@
                 }
 
 
-                if (base.Request.Form["PhoneNumber12"] != null)
+                else if (base.Request.Form["PhoneNumber12"] != null)
                 {
                     txt_app_no.Text = base.Request.Form["PhoneNumber12"].ToString();
                     adminID = base.Request.Form["pwalletID"].ToString();
@@ -2254,7 +2423,7 @@
 
 
 
-                if (base.Request.Form["PhoneNumber13"] != null)
+                else if  (base.Request.Form["PhoneNumber13"] != null)
                 {
                     txt_app_no.Text = base.Request.Form["PhoneNumber13"].ToString();
                     adminID = base.Request.Form["pwalletID"].ToString();
@@ -2345,6 +2514,10 @@
 
 
                 }
+
+
+
+           
 
 
                 fillAmtList();

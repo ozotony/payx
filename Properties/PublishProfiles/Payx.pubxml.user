@@ -31,7 +31,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/23/2014 23:02:30</publishTime>
     </File>
     <File Include="A/m_payx.aspx">
-      <publishTime>06/28/2017 15:50:40</publishTime>
+      <publishTime>10/26/2018 15:40:48</publishTime>
     </File>
     <File Include="agt_reg.aspx">
       <publishTime>07/23/2014 22:39:25</publishTime>
@@ -124,10 +124,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/23/2014 22:39:04</publishTime>
     </File>
     <File Include="bin/PayX.dll">
-      <publishTime>02/21/2018 12:19:26</publishTime>
+      <publishTime>11/08/2018 15:43:08</publishTime>
+    </File>
+    <File Include="bin/PayX.pdb">
+      <publishTime>11/08/2018 15:43:08</publishTime>
     </File>
     <File Include="bin/PayX.XmlSerializers.dll">
-      <publishTime>02/21/2018 12:19:27</publishTime>
+      <publishTime>11/08/2018 15:43:08</publishTime>
     </File>
     <File Include="b_collect/xup.aspx">
       <publishTime>07/23/2014 23:04:22</publishTime>
@@ -820,7 +823,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/21/2015 13:20:20</publishTime>
     </File>
     <File Include="js/AngularLogin2.js">
-      <publishTime>07/04/2017 16:07:35</publishTime>
+      <publishTime>11/08/2018 15:42:59</publishTime>
     </File>
     <File Include="js/AngularLogin3.js">
       <publishTime>02/13/2018 11:10:24</publishTime>
@@ -860,6 +863,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="js/sweet-alert.min.js">
       <publishTime>02/28/2015 16:08:00</publishTime>
+    </File>
+    <File Include="js/Test2.js">
+      <publishTime>11/08/2018 11:57:36</publishTime>
     </File>
     <File Include="js/timers.js">
       <publishTime>07/23/2014 23:24:17</publishTime>
@@ -1306,7 +1312,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/23/2014 22:38:56</publishTime>
     </File>
     <File Include="Test2.aspx">
-      <publishTime>12/05/2014 22:48:10</publishTime>
+      <publishTime>08/23/2018 07:23:37</publishTime>
     </File>
     <File Include="upd_pro.aspx">
       <publishTime>07/23/2014 22:38:56</publishTime>
@@ -1318,7 +1324,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/23/2014 22:59:32</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>09/15/2016 12:48:18</publishTime>
+      <publishTime>10/28/2018 20:03:54</publishTime>
     </File>
     <File Include="X/charge_back.aspx">
       <publishTime>09/26/2014 11:43:58</publishTime>
@@ -1336,7 +1342,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/26/2014 11:42:55</publishTime>
     </File>
     <File Include="X/pay_his.aspx">
-      <publishTime>02/21/2018 16:20:07</publishTime>
+      <publishTime>02/21/2018 16:35:53</publishTime>
     </File>
     <File Include="X/pay_his2.aspx">
       <publishTime>06/16/2016 12:06:52</publishTime>
@@ -1363,7 +1369,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/23/2014 23:14:54</publishTime>
     </File>
     <File Include="xis/pd/tx/formx.aspx">
-      <publishTime>07/24/2017 16:52:37</publishTime>
+      <publishTime>03/24/2018 16:23:42</publishTime>
     </File>
     <File Include="xis/pd/tx/index.aspx">
       <publishTime>07/23/2014 23:14:31</publishTime>

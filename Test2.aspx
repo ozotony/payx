@@ -5,12 +5,41 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+      html,body {
+          height:100%;
+      }
+        
+          .tabs {
+            display:flex;
+            width:400px;
+            height:100%;
+            align-items:center;
+        }
+        .tab2 {
+            margin-left:auto;
+        }
+    </style>
 </head>
 <body>
-    <form id="form1" runat="server">
-    <div>
+  <div class="tabs">
+      <div>
+           <button type="button">Click Me!</button>
+      </div>
     
+     <div>
+           <button type="button">Click Me!</button>
+      </div>
+       <div class="tab2">
+           <button type="button">Click Me!</button>
+      </div>
     </div>
-    </form>
+
+
+
+
+
+  
 </body>
 </html>
